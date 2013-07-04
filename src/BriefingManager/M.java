@@ -93,8 +93,8 @@ public class M {
 		BasicDBObject query = new BasicDBObject("securityCode", securityCode)
 				.append("date", date);
 		DBCursor cursor = collection.find(query);
+		if (!cursor.hasNext()) System.out.println("Nothing found of " + securityCode + " @ " + date);
 		while (cursor.hasNext()) System.out.println(cursor.next());
-		;
 	}
 
 	public static List<String> listSecurities() throws Exception {

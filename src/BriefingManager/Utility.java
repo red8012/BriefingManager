@@ -1,5 +1,6 @@
 package BriefingManager;
 import java.io.File;
+import java.util.Calendar;
 
 public class Utility {
 	public static void cleanUpDir(String name) {
@@ -20,5 +21,22 @@ public class Utility {
 			return removeUrusaiTokens(left + middle + right);
 		}
 		return s;
+	}
+
+	public static String calendarToString(Calendar c) {
+		Integer yyyy = c.get(Calendar.YEAR), mm = c.get(Calendar.MONTH) + 1, dd = c.get(Calendar.DAY_OF_MONTH);
+		String y = yyyy.toString();
+		String m = (mm < 10 ? "0" : "") + mm.toString();
+		String d = (dd < 10 ? "0" : "") + dd.toString();
+		return y + "-" + m + "-" + d;
+	}
+
+	public static Double stringToDouble(String s) throws Exception {
+		try {
+			return new Double(s);
+		} catch (Exception e) {
+			if (s.equals("--")) return null;
+			else throw new Exception(s);
+		}
 	}
 }

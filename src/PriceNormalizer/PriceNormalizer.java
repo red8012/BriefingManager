@@ -1,6 +1,8 @@
 package PriceNormalizer;
 import BriefingManager.C;
 import BriefingManager.M;
+import BriefingManager.Utility;
+import Grab.Grab;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -8,13 +10,30 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class PriceNormalizer implements Runnable {
 	final String code;
 	final LinkedList<Pair<String, Double>> list = new LinkedList<Pair<String, Double>>();
+	static boolean isUpdateMode = true;
 
 	public PriceNormalizer(String code) {
 		this.code = code;
+	}
+
+	public static void start(boolean isUpdateMode) throws Exception {
+		PriceNormalizer.isUpdateMode = isUpdateMode;
+		System.out.print("Running price normalizer... ");
+		ExecutorService pool = Executors.newFixedThreadPool(4);
+		for (String s : M.listSecurities())
+			if (Integer.parseInt(s) > 1000) pool.execute(new PriceNormalizer(s));
+		pool.execute(new IndexNormalizer());
+		pool.shutdown();
+		if (pool.awaitTermination(10, TimeUnit.MINUTES)) {
+			System.out.println("finished!");
+		} else System.out.println("Error: Timeout! (cannot connect to server)");
 	}
 
 	@Override
@@ -91,7 +110,8 @@ public class PriceNormalizer implements Runnable {
 				continue;
 			}
 			try {
-				list.addFirst(new Pair<String, Double>(split[0], new Double(split[1])));
+				if (split[0] != null)
+					list.addFirst(new Pair<String, Double>(split[0], new Double(split[1])));
 			} catch (NumberFormatException e) {
 			}
 		}
@@ -99,25 +119,49 @@ public class PriceNormalizer implements Runnable {
 
 	void writeResult() {
 		try {
-			// copy
 			int rowCount = M.getRowCount(code);
-			// process normalize
-			for (Pair<String, Double> p : list) {
-				String currentDate = p.getKey().replaceAll("/", "-");
-				if (M.getRow(code, currentDate) == null) continue;
-				for (int i = M.getRow(code, currentDate) + 1; i < rowCount; i++) {
-					Double v = M.get(code, i, C.normalizedOpen);
-					if (v != null) M.set(code, i, C.normalizedOpen, v + p.getValue());
-					v = M.get(code, i, C.normalizedHigh);
-					if (v != null) M.set(code, i, C.normalizedHigh, v + p.getValue());
-					v = M.get(code, i, C.normalizedLow);
-					if (v != null) M.set(code, i, C.normalizedLow, v + p.getValue());
-					v = M.get(code, i, C.normalizedClose);
-					if (v != null) M.set(code, i, C.normalizedClose, v + p.getValue());
+
+			if (!isUpdateMode) {
+				for (Pair<String, Double> p : list) {
+					String currentDate = p.getKey().replaceAll("/", "-");
+					if (M.getRow(code, currentDate) == null) continue;
+					for (int i = M.getRow(code, currentDate) + 1; i < rowCount; i++) {
+						Double v = M.get(code, i, C.normalizedOpen);
+						if (v != null) M.set(code, i, C.normalizedOpen, v + p.getValue());
+						v = M.get(code, i, C.normalizedHigh);
+						if (v != null) M.set(code, i, C.normalizedHigh, v + p.getValue());
+						v = M.get(code, i, C.normalizedLow);
+						if (v != null) M.set(code, i, C.normalizedLow, v + p.getValue());
+						v = M.get(code, i, C.normalizedClose);
+						if (v != null) M.set(code, i, C.normalizedClose, v + p.getValue());
+					}
 				}
+				return;
 			}
+
+			String lastDevidendDate = list.getLast().getKey().replaceAll("/", "-");
+			Double delta = null;
+			try {
+				delta = M.get(code, rowCount - 2, C.normalizedClose) - M.get(code, rowCount - 2, C.close);
+			} catch (Exception e) {
+				System.err.println("Problem: " + code);
+			}
+
+			if (lastDevidendDate.equals(Utility.calendarToString(Grab.current))) {
+				delta += list.getLast().getValue();
+//				System.out.print("delta: ");
+//				System.out.println(delta);
+			}
+			Double v = M.get(code, rowCount - 1, C.open);
+			if (v != null) M.set(code, rowCount - 1, C.normalizedOpen, v + delta);
+			v = M.get(code, rowCount - 1, C.high);
+			if (v != null) M.set(code, rowCount - 1, C.normalizedHigh, v + delta);
+			v = M.get(code, rowCount - 1, C.low);
+			if (v != null) M.set(code, rowCount - 1, C.normalizedLow, v + delta);
+			v = M.get(code, rowCount - 1, C.close);
+			if (v != null) M.set(code, rowCount - 1, C.normalizedClose, v + delta);
 		} catch (Exception e) {
-			System.err.println("Error writing result: " + code);
+			System.err.println("\nError writing result: " + code);
 			e.printStackTrace();
 		}
 	}

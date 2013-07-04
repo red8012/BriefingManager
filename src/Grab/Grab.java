@@ -3,20 +3,25 @@ import BriefingManager.C;
 import BriefingManager.M;
 import BriefingManager.Utility;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import static BriefingManager.Utility.stringToDouble;
+
 public class Grab {
 	static int YYYY, MM, DD, yyyy, mm, dd;
-	static Calendar start, current, end;
+	public static Calendar start, current, end;
 	static HashMap<String, ArrayList<String>> map;
 	static HashMap<String, String> returnIndexMap, volumeMap, upMap, downMap;
 
 	public static void startWorking(boolean isUpdateMode) {
-		System.out.print((isUpdateMode ? "You are using update mode. \tThe data will be downloaded" :
+		System.out.print((isUpdateMode ? "You are using update mode. \tThe data will be downloaded " :
 				"The data will be grabbed ") +
 				"from [ " + start.getTime().toString().replace("00:00:00 CST ", "") +
 				" ] to [ " + end.getTime().toString().replace("00:00:00 CST ", "") + " ]\n" +
@@ -134,8 +139,15 @@ public class Grab {
 			int row = M.getRowCount(entry.getKey());
 			for (String s : entry.getValue()) {
 				String[] split = s.split(",");
+				if (M.getRow(entry.getKey(), split[0]) != null) {
+					System.err.println("Error: already exist!");
+					return;
+				}
 				if (entry.getKey().equals("0000")) {
-				 M.insert("0000", row, split[0]);
+					M.insert("0000", row, split[0]);
+//					System.out.println("dbg");
+//					System.out.println(row);
+//					System.out.println(split[0]);
 					M.set("0000", row, C.open, stringToDouble(split[1]));
 					M.set("0000", row, C.high, stringToDouble(split[2]));
 					M.set("0000", row, C.low, stringToDouble(split[3]));
@@ -163,35 +175,13 @@ public class Grab {
 		}
 	}
 
-	public static void determineUpdateRange() throws Exception {
-		String line, prevLine = "";
-		File f = new File("arranged/2330.csv");
-		if (!f.exists()) {
-			System.out.println("You have not run batched grab yet, please run in batched grab mode first.");
-			return;
-		}
-		BufferedReader reader = new BufferedReader(new FileReader(f));
-		while ((line = reader.readLine()) != null) prevLine = line;
-		reader.close();
-		String date[] = prevLine.split(",")[0].split("-");
-		YYYY = Integer.parseInt(date[0]);
-		MM = Integer.parseInt(date[1]);
-		DD = Integer.parseInt(date[2]) + 1;
+	public static void setUpdateRangeToday() throws Exception {
 		Calendar calendar = Calendar.getInstance();
-		yyyy = calendar.get(Calendar.YEAR);
-		mm = calendar.get(Calendar.MONTH) + 1;
-		dd = calendar.get(Calendar.DAY_OF_MONTH);
-		start = new GregorianCalendar(YYYY, MM - 1, DD, 0, 0, 0);
-		current = new GregorianCalendar(YYYY, MM - 1, DD, 0, 0, 0);
+		YYYY = yyyy = calendar.get(Calendar.YEAR);
+		MM = mm = calendar.get(Calendar.MONTH) + 1;
+		DD = dd = calendar.get(Calendar.DAY_OF_MONTH);
+		start = new GregorianCalendar(yyyy, mm - 1, dd, 0, 0, 0);
+		current = new GregorianCalendar(yyyy, mm - 1, dd, 0, 0, 0);
 		end = new GregorianCalendar(yyyy, mm - 1, dd, 0, 0, 0);
-	}
-
-	static Double stringToDouble(String s) throws Exception {
-		try {
-			return new Double(s);
-		} catch (Exception e) {
-			if (s.equals("--")) return null;
-			else throw new Exception(s);
-		}
 	}
 }
