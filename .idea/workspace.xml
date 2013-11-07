@@ -4,20 +4,25 @@
     <list default="true" id="190e659a-0010-4dbd-beb7-3732bcce911e" name="Default" comment="" />
     <ignored path="BriefingManager.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1372839797298" ignored="false" />
+    <file path="/Main.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383838126873" ignored="false" />
     <file path="/MongoConnection.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383484712837" ignored="false" />
-    <file path="/M.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1372839473074" ignored="false" />
+    <file path="/M.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383835500611" ignored="false" />
     <file path="/DownloadWorker.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383489846293" ignored="false" />
     <file path="/DownloadIndex.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383489924566" ignored="false" />
     <file path="/Grab.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1372840351076" ignored="false" />
     <file path="/Utility.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383807859324" ignored="false" />
-    <file path="/fragment.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1372840675855" ignored="false" />
+    <file path="/fragment.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383837504943" ignored="false" />
     <file path="/Worker.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383740099999" ignored="false" />
-    <file path="/C.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383751442505" ignored="false" />
+    <file path="/C.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383837808806" ignored="false" />
     <file path="$PROJECT_DIR$/../progressBar/src/Main.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383741058108" ignored="false" />
     <file path="/PriceNormalizer.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1372927709713" ignored="false" />
     <file path="/IndexNormalizer.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383746464713" ignored="false" />
     <file path="/.gitignore" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383751910692" ignored="false" />
+    <file path="/GroupModule.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383837473397" ignored="false" />
+    <file path="/RegressionPercentage.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383838034450" ignored="false" />
+    <file path="/Guard1percent.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383834614262" ignored="false" />
+    <file path="/GuardPercentage.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383835732433" ignored="false" />
+    <file path="/RegressionModule.java" changelist="190e659a-0010-4dbd-beb7-3732bcce911e" time="1383837527431" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,13 +83,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BriefingManager/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="35" selection-start="1366" selection-end="1366" vertical-scroll-proportion="0.0">
+            <state line="54" column="5" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.81">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#307#350#0" expanded="true" />
+                <element signature="method#update#0;class#Main#0" expanded="false" />
+                <element signature="e#1368#1408#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -114,15 +120,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PriceNormalizer.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/PriceNormalizer/PriceNormalizer.java">
+      <file leaf-file-name="GroupModule.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Groups/GroupModule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="146" column="53" selection-start="4972" selection-end="4972" vertical-scroll-proportion="0.39644217">
+            <state line="3" column="24" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegressionPercentage.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Groups/RegressionPercentage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="20" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#557#579#0" expanded="true" />
-                <element signature="method#PriceNormalizer#0;class#PriceNormalizer#0" expanded="false" />
-                <element signature="method#expand#0;class#PriceNormalizer#0" expanded="false" />
-                <element signature="e#5095#5129#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GuardPercentage.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Groups/GuardPercentage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="51" selection-start="806" selection-end="847" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -131,18 +154,27 @@
       <file leaf-file-name="M.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BriefingManager/M.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="26" selection-start="3391" selection-end="3391" vertical-scroll-proportion="0.0">
+            <state line="51" column="23" selection-start="2007" selection-end="2007" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="method#connect#0;class#M#0" expanded="false" />
                 <element signature="method#disconnect#0;class#M#0" expanded="false" />
                 <element signature="method#insert#0;class#M#0" expanded="false" />
                 <element signature="method#insert#1;class#M#0" expanded="false" />
-                <element signature="method#get#0;class#M#0" expanded="false" />
-                <element signature="method#getDate#0;class#M#0" expanded="false" />
                 <element signature="method#get#1;class#M#0" expanded="false" />
+                <element signature="method#getRow#0;class#M#0" expanded="false" />
                 <element signature="method#listSecurities#0;class#M#0" expanded="false" />
+                <element signature="method#getRowCount#0;class#M#0" expanded="false" />
                 <element signature="method#checkRowDateConsistency#0;class#M#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="C.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BriefingManager/C.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="42" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -157,22 +189,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/M.java" />
-        <option value="$PROJECT_DIR$/src/Grab/DownloadWorker.java" />
-        <option value="$PROJECT_DIR$/src/Grab/DownloadIndex.java" />
-        <option value="$PROJECT_DIR$/src/Grab/ProcessIndex.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/PriceNormalizer/Pair.java" />
         <option value="$PROJECT_DIR$/src/PriceNormalizer/Worker.java" />
         <option value="$PROJECT_DIR$/src/PriceNormalizer/IndexNormalizer.java" />
         <option value="$PROJECT_DIR$/temp/20131101.csv" />
-        <option value="$PROJECT_DIR$/src/BriefingManager/C.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/BriefingManager/Utility.java" />
-        <option value="$PROJECT_DIR$/src/BriefingManager/M.java" />
-        <option value="$PROJECT_DIR$/src/BriefingManager/Main.java" />
         <option value="$PROJECT_DIR$/src/Grab/Grab.java" />
         <option value="$PROJECT_DIR$/src/PriceNormalizer/PriceNormalizer.java" />
+        <option value="$PROJECT_DIR$/src/Groups/Guard1percent.java" />
+        <option value="$PROJECT_DIR$/src/BriefingManager/M.java" />
+        <option value="$PROJECT_DIR$/src/Groups/GuardPercentage.java" />
+        <option value="$PROJECT_DIR$/src/Groups/GroupModule.java" />
+        <option value="$PROJECT_DIR$/src/Groups/RegressionModule.java" />
+        <option value="$PROJECT_DIR$/src/BriefingManager/C.java" />
+        <option value="$PROJECT_DIR$/src/Groups/RegressionPercentage.java" />
+        <option value="$PROJECT_DIR$/src/BriefingManager/Main.java" />
       </list>
     </option>
   </component>
@@ -275,7 +307,39 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Groups" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BriefingManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BriefingManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Grab" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BriefingManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BriefingManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -324,6 +388,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Groups" />
       <recent name="PriceNormalizer" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -335,7 +400,7 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="BriefingManager.Main" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="update" />
+      <option name="PROGRAM_PARAMETERS" value="calc" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
@@ -400,7 +465,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -489,23 +554,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/BriefingManager/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#307#350#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PriceNormalizer/Pair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="13" selection-start="38" selection-end="38" vertical-scroll-proportion="0.02375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/mongo-java-driver-2.11.3.jar!/com/mongodb/DB.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="36" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.34383202">
@@ -534,13 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BriefingManager/C.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="72" selection-start="193" selection-end="193" vertical-scroll-proportion="0.07125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Grab/DownloadWorker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="55" selection-start="507" selection-end="633" vertical-scroll-proportion="0.0">
@@ -557,19 +598,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BriefingManager/M.java">
+    <entry file="file://$PROJECT_DIR$/src/PriceNormalizer/IndexNormalizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="26" selection-start="3391" selection-end="3391" vertical-scroll-proportion="0.0">
+        <state line="4" column="17" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="method#connect#0;class#M#0" expanded="false" />
-            <element signature="method#disconnect#0;class#M#0" expanded="false" />
-            <element signature="method#insert#0;class#M#0" expanded="false" />
-            <element signature="method#insert#1;class#M#0" expanded="false" />
-            <element signature="method#get#0;class#M#0" expanded="false" />
-            <element signature="method#getDate#0;class#M#0" expanded="false" />
-            <element signature="method#get#1;class#M#0" expanded="false" />
-            <element signature="method#listSecurities#0;class#M#0" expanded="false" />
-            <element signature="method#checkRowDateConsistency#0;class#M#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PriceNormalizer/PriceNormalizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="41" selection-start="4269" selection-end="4269" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#557#579#0" expanded="true" />
+            <element signature="method#PriceNormalizer#0;class#PriceNormalizer#0" expanded="false" />
+            <element signature="method#expand#0;class#PriceNormalizer#0" expanded="false" />
+            <element signature="e#5095#5129#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -585,9 +630,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PriceNormalizer/IndexNormalizer.java">
+    <entry file="file://$PROJECT_DIR$/src/BriefingManager/M.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="17" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
+        <state line="51" column="23" selection-start="2007" selection-end="2007" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="method#connect#0;class#M#0" expanded="false" />
+            <element signature="method#disconnect#0;class#M#0" expanded="false" />
+            <element signature="method#insert#0;class#M#0" expanded="false" />
+            <element signature="method#insert#1;class#M#0" expanded="false" />
+            <element signature="method#get#1;class#M#0" expanded="false" />
+            <element signature="method#getRow#0;class#M#0" expanded="false" />
+            <element signature="method#listSecurities#0;class#M#0" expanded="false" />
+            <element signature="method#getRowCount#0;class#M#0" expanded="false" />
+            <element signature="method#checkRowDateConsistency#0;class#M#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Groups/GroupModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="24" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Groups/RegressionModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="10" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BriefingManager/C.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="42" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Groups/GuardPercentage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="51" selection-start="806" selection-end="847" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Groups/RegressionPercentage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="20" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -596,22 +688,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BriefingManager/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="35" selection-start="1366" selection-end="1366" vertical-scroll-proportion="0.0">
+        <state line="54" column="5" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.81">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#307#350#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PriceNormalizer/PriceNormalizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="53" selection-start="4972" selection-end="4972" vertical-scroll-proportion="0.39644217">
-          <folding>
-            <element signature="e#557#579#0" expanded="true" />
-            <element signature="method#PriceNormalizer#0;class#PriceNormalizer#0" expanded="false" />
-            <element signature="method#expand#0;class#PriceNormalizer#0" expanded="false" />
-            <element signature="e#5095#5129#0" expanded="true" />
+            <element signature="method#update#0;class#Main#0" expanded="false" />
+            <element signature="e#1368#1408#0" expanded="true" />
           </folding>
         </state>
       </provider>

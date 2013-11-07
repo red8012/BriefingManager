@@ -49,6 +49,14 @@ public class M {
 		if (result.getError() != null) throw new Exception(result.getError());
 	}
 
+	public static void set(String securityCode, int row, String column, int value) throws Exception {
+		BasicDBObject query = new BasicDBObject("securityCode", securityCode)
+				.append("row", row);
+		BasicDBObject update = new BasicDBObject("$set", new BasicDBObject(column, value));
+		WriteResult result = collection.update(query, update, true, false);
+		if (result.getError() != null) throw new Exception(result.getError());
+	}
+
 	public static void set(String securityCode, String date, String column, Double value) throws Exception {
 		BasicDBObject query = new BasicDBObject("securityCode", securityCode)
 				.append("date", date);
@@ -57,7 +65,7 @@ public class M {
 		if (result.getError() != null) throw new Exception(result.getError());
 	}
 
-	public static Double get(String securityCode, int row, String column) throws Exception {
+	public static Double get(String securityCode, int row, String column) throws NullPointerException {
 		BasicDBObject query = new BasicDBObject("securityCode", securityCode)
 				.append("row", row);
 		DBObject result = collection.findOne(query);
