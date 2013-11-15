@@ -1,6 +1,7 @@
 package Grab;
 import BriefingManager.C;
 import BriefingManager.M;
+import BriefingManager.Main;
 import BriefingManager.Utility;
 
 import java.io.BufferedReader;
@@ -136,6 +137,11 @@ public class Grab {
 
 	static void writeArranged() throws Exception {
 		for (Map.Entry<String, ArrayList<String>> entry : map.entrySet()) {
+			if (Main.DEBUG){
+				String code = entry.getKey();
+				if (code.equals("0000")||code.equals("2330")||code.equals("2498"));
+				else continue;
+			}
 			int row = M.getRowCount(entry.getKey());
 			for (String s : entry.getValue()) {
 				String[] split = s.split(",");

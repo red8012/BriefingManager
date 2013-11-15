@@ -73,6 +73,14 @@ public class M {
 		else return (Double) result.get(column);
 	}
 
+	public static Integer getInt(String securityCode, int row, String column) throws NullPointerException{
+		BasicDBObject query = new BasicDBObject("securityCode", securityCode)
+				.append("row", row);
+		DBObject result = collection.findOne(query);
+		if (result == null) return null;
+		else return (Integer)result.get(column);
+	}
+
 	public static String getDate(String securityCode, int row) throws Exception {
 		BasicDBObject query = new BasicDBObject("securityCode", securityCode)
 				.append("row", row);
