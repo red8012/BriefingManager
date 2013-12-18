@@ -17,6 +17,9 @@ public class RegressionPercentage extends RegressionModule {
 		else if (name.equals(C.regressionHigh))
 			return (M.get(code, row, C.normalizedHigh) - open) / open;
 
+		else if (name.equals(C.regressionOpen))
+			return (M.get(code, row + 1, C.normalizedOpen) - open) / open;
+
 		else System.err.println("Unknown type!");
 
 		return null;

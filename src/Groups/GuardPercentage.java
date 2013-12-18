@@ -26,16 +26,16 @@ public class GuardPercentage extends GroupModule {
 					close = M.get(code, row + 2, C.normalizedClose);
 			if (close - open > open * 0.03) return 1;
 		} else if (name.equals(C.guard4)) {
-			Double open = M.get(code, row, C.normalizedOpen),
-					high = M.get(code, row, C.normalizedHigh);
-			if (high - open > open * 0.04) return 1;
-		} else if (name.equals(C.guard5)){
+			Double open0 = M.get(code, row, C.normalizedOpen),
+					open1 = M.get(code, row + 1, C.normalizedOpen);
+			if (open1 - open0 > 0) return 1;
+		} else if (name.equals(C.guard5)) {
 			Double open = M.get(code, row, C.normalizedOpen);
 			if (M.get(code, row, C.normalizedHigh) - open > open * 0.05) return 1;
-			if (M.get(code, row+1, C.normalizedHigh) - open > open * 0.05) return 1;
-			if (M.get(code, row+2, C.normalizedHigh) - open > open * 0.05) return 1;
-			if (M.get(code, row+3, C.normalizedHigh) - open > open * 0.05) return 1;
-			if (M.get(code, row+4, C.normalizedHigh) - open > open * 0.05) return 1;
+			if (M.get(code, row + 1, C.normalizedHigh) - open > open * 0.05) return 1;
+			if (M.get(code, row + 2, C.normalizedHigh) - open > open * 0.05) return 1;
+			if (M.get(code, row + 3, C.normalizedHigh) - open > open * 0.05) return 1;
+			if (M.get(code, row + 4, C.normalizedHigh) - open > open * 0.05) return 1;
 		} else System.err.println("Unknown type!");
 
 		return -1;

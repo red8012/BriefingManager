@@ -4,10 +4,7 @@ import BriefingManager.M;
 import BriefingManager.Main;
 import BriefingManager.Utility;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -20,6 +17,7 @@ public class Grab {
 	public static Calendar start, current, end;
 	static HashMap<String, ArrayList<String>> map;
 	static HashMap<String, String> returnIndexMap, volumeMap, upMap, downMap;
+	static HashSet<String> securityList = null;
 
 	public static void startWorking(boolean isUpdateMode) {
 		System.out.print((isUpdateMode ? "You are using update mode. \tThe data will be downloaded " :
@@ -117,6 +115,7 @@ public class Grab {
 						continue;
 					}
 					if (split[0].length() != 4) continue;
+					if (!inSecurityList(split[0])) continue;
 					split = Utility.removeUrusaiTokens(line).split(",");
 					Integer.parseInt(split[0]); // check legal 4 digit code
 				} catch (NumberFormatException e) {
@@ -137,23 +136,20 @@ public class Grab {
 
 	static void writeArranged() throws Exception {
 		for (Map.Entry<String, ArrayList<String>> entry : map.entrySet()) {
-			if (Main.DEBUG){
+			if (Main.DEBUG) {
 				String code = entry.getKey();
-				if (code.equals("0000")||code.equals("2330")||code.equals("2498"));
+				if (code.equals("0000") || code.equals("2330") || code.equals("2498")) ;
 				else continue;
 			}
 			int row = M.getRowCount(entry.getKey());
 			for (String s : entry.getValue()) {
 				String[] split = s.split(",");
-				if (M.getRow(entry.getKey(), split[0]) != null) {
-					System.err.println("Error: already exist!");
-					return;
-				}
+//				if (M.getRow(entry.getKey(), split[0]) != null) {
+//					System.err.println("Error: already exist!");
+//					return;
+//				}
 				if (entry.getKey().equals("0000")) {
 					M.insert("0000", row, split[0]);
-//					System.out.println("dbg");
-//					System.out.println(row);
-//					System.out.println(split[0]);
 					M.set("0000", row, C.open, stringToDouble(split[1]));
 					M.set("0000", row, C.high, stringToDouble(split[2]));
 					M.set("0000", row, C.low, stringToDouble(split[3]));
@@ -189,5 +185,18 @@ public class Grab {
 		start = new GregorianCalendar(yyyy, mm - 1, dd, 0, 0, 0);
 		current = new GregorianCalendar(yyyy, mm - 1, dd, 0, 0, 0);
 		end = new GregorianCalendar(yyyy, mm - 1, dd, 0, 0, 0);
+	}
+
+	public static boolean inSecurityList(String code) throws Exception {
+		if (securityList == null) {
+			securityList = new HashSet<String>();
+			BufferedReader reader = new BufferedReader(new FileReader("securityList.txt"));
+			String s;
+			while ((s = reader.readLine()) != null)
+				securityList.add(s);
+			reader.close();
+		}
+		if (securityList.contains(code)) return true;
+		return false;
 	}
 }

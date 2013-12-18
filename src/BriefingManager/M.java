@@ -1,4 +1,6 @@
 package BriefingManager;
+import FeatureGenerator.CalculateWorker;
+import FeatureGenerator.TechnicalModule;
 import com.mongodb.*;
 
 import java.util.List;
@@ -8,7 +10,7 @@ public class M {
 	static DB db;
 	static DBCollection collection;
 
-	public static void connect(boolean ensureIndex) throws Exception {
+	public static void connect(boolean ensureIndex, boolean unacknowledged) throws Exception {
 		mongoClient = new MongoClient();
 		db = mongoClient.getDB("bm");
 		collection = db.getCollection("tw");
@@ -16,7 +18,15 @@ public class M {
 			collection.ensureIndex("securityCode");
 			collection.ensureIndex("row");
 			collection.ensureIndex("date");
+			BasicDBObject compound1 = new BasicDBObject("securityCode", null)
+					.append("row", null);
+			BasicDBObject compound2 = new BasicDBObject("securityCode", null)
+					.append("date", null);
+			collection.ensureIndex(compound1);
+			collection.ensureIndex(compound2);
 		}
+		if (unacknowledged)	mongoClient.setWriteConcern(WriteConcern.UNACKNOWLEDGED);
+
 	}
 
 	public static void disconnect() throws Exception {
@@ -37,6 +47,8 @@ public class M {
 				.append(C.high, high).append(C.normalizedHigh, high)
 				.append(C.low, low).append(C.normalizedLow, low)
 				.append(C.close, close).append(C.normalizedClose, close);
+//		for (TechnicalModule tm: CalculateWorker.modules)
+//			insert.append(tm.NAME, new Double(Double.NaN));
 		WriteResult result = collection.insert(insert);
 		if (result.getError() != null) throw new Exception(result.getError());
 	}
@@ -118,11 +130,13 @@ public class M {
 	}
 
 	public static int getRowCount(String securityCode) {
+		Integer result = 0;
 		BasicDBObject find = new BasicDBObject("securityCode", securityCode);
 		BasicDBObject sort = new BasicDBObject("row", -1);
 		DBCursor cursor = collection.find(find).sort(sort).limit(1);
-		if (cursor.hasNext()) return ((Integer) cursor.next().get("row")) + 1;
-		else return 0;
+		if (cursor.hasNext()) result= ((Integer) cursor.next().get("row")) + 1;
+		cursor.close();
+		return result;
 	}
 
 	public static void checkRowDateConsistency() {

@@ -1,4 +1,4 @@
-package Features.FeaturePrerequisites;
+package FeaturePrerequisites;
 import BriefingManager.C;
 import FeatureGenerator.TechnicalModule;
 import org.apache.commons.math3.stat.descriptive.moment.Mean;

@@ -1,7 +1,9 @@
 package FeatureGenerator;
 import BriefingManager.C;
 import BriefingManager.M;
-import Features.FeaturePrerequisites.MovingAverage;
+import FeaturePrerequisites.MovingAverage;
+import FeaturePrerequisites.Std;
+import Features.RelativePosition;
 
 import java.util.ArrayList;
 
@@ -9,8 +11,16 @@ public class CalculateWorker implements Runnable {
 	DataSet d = new DataSet();
 	String code;
 	public final static TechnicalModule[] modules = {
-			new MovingAverage(MovingAverage.ALL, 3),
-			new MovingAverage(MovingAverage.ALL, 5)
+			new MovingAverage(MovingAverage.ALL, 5),
+			new MovingAverage(MovingAverage.ALL, 20),
+			new MovingAverage(MovingAverage.ALL, 8),
+			new MovingAverage(MovingAverage.ALL, 13),
+			new MovingAverage(MovingAverage.ALL, 34),
+			new Std(5), new Std(20),
+			new RelativePosition("RO0"), new RelativePosition("RO1"), new RelativePosition("RO2"),
+			new RelativePosition("RH0"), new RelativePosition("RH1"), new RelativePosition("RH2"),
+			new RelativePosition("RL0"), new RelativePosition("RL1"), new RelativePosition("RL2"),
+			new RelativePosition("RC0"), new RelativePosition("RC1"), new RelativePosition("RC2"),
 	};
 
 	public CalculateWorker(String code) {
@@ -22,6 +32,7 @@ public class CalculateWorker implements Runnable {
 		readData();
 		addModule();
 		writeData();
+		System.out.print("*");
 	}
 
 	void readData() {
@@ -63,6 +74,11 @@ public class CalculateWorker implements Runnable {
 
 	void writeData() {
 		for (TechnicalModule m : modules) {
+//			try {
+//				M.setZero(code, m.NAME);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
 			for (int i = 0; i < d.getLength(); i++) {
 				try {
 					M.set(code, d.getStr(C.date, i), m.NAME, d.getDoubleChecked(m.NAME, i));
